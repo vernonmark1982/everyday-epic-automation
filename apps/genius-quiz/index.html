@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Genius Test — How High Is Your IQ?</title>
+<meta name="description" content="Take the 60-second Genius Test and find out your brain rank. No signup required.">
+<style>
+  :root {
+    --bg: #0f0c29;
+    --bg2: #302b63;
+    --bg3: #24243e;
+    --accent: #ffd60a;
+    --accent2: #00e0ff;
+    --card: rgba(255,255,255,0.06);
+    --text: #f5f5f7;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: linear-gradient(135deg, var(--bg), var(--bg2), var(--bg3));
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .ad-slot {
+    width: 100%;
+    max-width: 728px;
+    min-height: 60px;
+    margin: 12px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    color: rgba(255,255,255,0.25);
+    border: 1px dashed rgba(255,255,255,0.15);
+    border-radius: 8px;
+  }
+  /* TODO(monetization): replace .ad-slot contents with your ad network's snippet
+     (AdSense / Ezoic / Monumetric, etc.) once an account is set up. */
+  .wrap {
+    width: 100%;
+    max-width: 560px;
+    padding: 24px 20px 60px;
+  }
+  header { text-align: center; margin-bottom: 8px; }
+  header h1 {
+    font-size: 28px;
+    margin: 12px 0 4px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  header p { color: rgba(255,255,255,0.65); margin: 0; font-size: 14px; }
+  .card {
+    background: var(--card);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    padding: 24px;
+    margin-top: 24px;
+    backdrop-filter: blur(6px);
+  }
+  .progress {
+    height: 6px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 18px;
+  }
+  .progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    transition: width 0.3s ease;
+  }
+  .q-meta {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 6px;
+  }
+  .q-text { font-size: 20px; line-height: 1.4; margin-bottom: 20px; }
+  .options { display: flex; flex-direction: column; gap: 10px; }
+  .option {
+    text-align: left;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.12);
+    color: var(--text);
+    padding: 14px 16px;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.1s ease, background 0.2s ease, border-color 0.2s ease;
+  }
+  .option:hover { background: rgba(255,255,255,0.12); transform: translateX(2px); }
+  .option.correct { background: rgba(46, 204, 113, 0.25); border-color: #2ecc71; }
+  .option.wrong { background: rgba(231, 76, 60, 0.25); border-color: #e74c3c; }
+  .option:disabled { cursor: default; }
+  .start-btn, .primary-btn {
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-radius: 12px;
+    font-size: 17px;
+    font-weight: 700;
+    background: linear-gradient(90deg, var(--accent), #ffb300);
+    color: #1a1a1a;
+    cursor: pointer;
+    margin-top: 8px;
+  }
+  .secondary-btn {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 12px;
+    font-size: 15px;
+    background: transparent;
+    color: var(--text);
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  .result-rank {
+    font-size: 38px;
+    font-weight: 800;
+    text-align: center;
+    margin: 10px 0 4px;
+  }
+  .result-score {
+    text-align: center;
+    font-size: 16px;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 18px;
+  }
+  .upsell {
+    border: 1px solid rgba(255,214,10,0.4);
+    background: rgba(255,214,10,0.08);
+    border-radius: 12px;
+    padding: 16px;
+    margin-top: 18px;
+    font-size: 14px;
+    text-align: center;
+  }
+  .upsell a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 18px;
+    border-radius: 8px;
+    background: var(--accent);
+    color: #1a1a1a;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+  }
+  footer {
+    margin-top: 30px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.35);
+    text-align: center;
+  }
+  .hidden { display: none; }
+</style>
+</head>
+<body>
+
+<div class="ad-slot">Ad space — top banner</div>
+
+<div class="wrap">
+  <header>
+    <h1>🧠 The Genius Test</h1>
+    <p>10 questions. 60 seconds. Find out your real brain rank.</p>
+  </header>
+
+  <!-- INTRO SCREEN -->
+  <div id="intro" class="card">
+    <p style="margin-top:0;">Logic, pattern recognition, general knowledge, quick wit. No login, no email — just your score.</p>
+    <button class="start-btn" id="start-btn">Start the Test →</button>
+  </div>
+
+  <!-- QUIZ SCREEN -->
+  <div id="quiz" class="card hidden">
+    <div class="progress"><div class="progress-bar" id="progress-bar"></div></div>
+    <div class="q-meta" id="q-meta">Question 1 of 10</div>
+    <div class="q-text" id="q-text"></div>
+    <div class="options" id="options"></div>
+  </div>
+
+  <!-- RESULT SCREEN -->
+  <div id="result" class="card hidden">
+    <div class="result-rank" id="result-rank"></div>
+    <div class="result-score" id="result-score"></div>
+    <button class="primary-btn" id="share-btn">Share My Result</button>
+    <button class="secondary-btn" id="retry-btn">Take It Again</button>
+
+    <div class="upsell">
+      🎓 Want a personalized, shareable <strong>Genius Certificate</strong>
+      with your full score breakdown?
+      <br>
+      <!-- TODO(monetization): point this at a real checkout link
+           (Gumroad / Stripe Payment Link / Lemon Squeezy) once set up. -->
+      <a href="#" id="certificate-link">Get My Certificate — $2.99</a>
+    </div>
+  </div>
+
+  <footer>Everyday Epic · Share your score, tag a friend who thinks they're smarter.</footer>
+</div>
+
+<div class="ad-slot">Ad space — bottom banner</div>
+
+<script>
+(function () {
+  const QUESTION_BANK = [
+    { q: "Which number comes next in the sequence: 2, 6, 12, 20, 30, ?", options: ["36", "40", "42", "44"], answer: 2 },
+    { q: "A farmer has 17 sheep, all but 9 run away. How many are left?", options: ["8", "9", "17", "0"], answer: 1 },
+    { q: "Which word does NOT belong: Apple, Banana, Carrot, Mango", options: ["Apple", "Banana", "Carrot", "Mango"], answer: 2 },
+    { q: "If you rearrange the letters 'CIFAIPC', you get the name of a:", options: ["City", "Animal", "Ocean", "Country"], answer: 2 },
+    { q: "What is the next letter: O, T, T, F, F, S, S, ?", options: ["E", "N", "T", "F"], answer: 1 },
+    { q: "A clock shows 3:15. What is the angle between the hour and minute hands?", options: ["0°", "7.5°", "15°", "30°"], answer: 1 },
+    { q: "Which planet is known as the Red Planet?", options: ["Venus", "Mars", "Jupiter", "Mercury"], answer: 1 },
+    { q: "Complete the analogy: Pen is to Write as Knife is to ___", options: ["Sharp", "Cut", "Kitchen", "Metal"], answer: 1 },
+    { q: "How many sides does a hexagon have?", options: ["5", "6", "7", "8"], answer: 1 },
+    { q: "If all Zorbs are Plinx, and all Plinx are Quim, are all Zorbs Quim?", options: ["Yes", "No", "Cannot be determined", "Only sometimes"], answer: 0 },
+    { q: "What is the chemical symbol for gold?", options: ["Go", "Gd", "Au", "Ag"], answer: 2 },
+    { q: "Which of these is a prime number?", options: ["27", "29", "33", "35"], answer: 1 },
+    { q: "A is the mother of B. B is the mother of C. What is A to C?", options: ["Aunt", "Sister", "Grandmother", "Cousin"], answer: 2 },
+    { q: "Which shape has no straight sides?", options: ["Square", "Triangle", "Circle", "Pentagon"], answer: 2 },
+    { q: "What comes next: 1, 1, 2, 3, 5, 8, ?", options: ["11", "12", "13", "14"], answer: 2 }
+  ];
+
+  const TOTAL_QUESTIONS = 10;
+  let quiz = [];
+  let current = 0;
+  let score = 0;
+
+  const introEl = document.getElementById('intro');
+  const quizEl = document.getElementById('quiz');
+  const resultEl = document.getElementById('result');
+  const qMetaEl = document.getElementById('q-meta');
+  const qTextEl = document.getElementById('q-text');
+  const optionsEl = document.getElementById('options');
+  const progressBarEl = document.getElementById('progress-bar');
+
+  function shuffle(arr) {
+    const a = arr.slice();
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
+
+  function startQuiz() {
+    quiz = shuffle(QUESTION_BANK).slice(0, TOTAL_QUESTIONS);
+    current = 0;
+    score = 0;
+    introEl.classList.add('hidden');
+    resultEl.classList.add('hidden');
+    quizEl.classList.remove('hidden');
+    renderQuestion();
+  }
+
+  function renderQuestion() {
+    const item = quiz[current];
+    qMetaEl.textContent = `Question ${current + 1} of ${quiz.length}`;
+    qTextEl.textContent = item.q;
+    progressBarEl.style.width = `${(current / quiz.length) * 100}%`;
+    optionsEl.innerHTML = '';
+    item.options.forEach((opt, idx) => {
+      const btn = document.createElement('button');
+      btn.className = 'option';
+      btn.textContent = opt;
+      btn.addEventListener('click', () => selectAnswer(idx));
+      optionsEl.appendChild(btn);
+    });
+  }
+
+  function selectAnswer(idx) {
+    const item = quiz[current];
+    const buttons = optionsEl.querySelectorAll('.option');
+    buttons.forEach((b) => (b.disabled = true));
+    buttons[idx].classList.add(idx === item.answer ? 'correct' : 'wrong');
+    if (idx !== item.answer) buttons[item.answer].classList.add('correct');
+    if (idx === item.answer) score++;
+
+    setTimeout(() => {
+      current++;
+      if (current < quiz.length) {
+        renderQuestion();
+      } else {
+        progressBarEl.style.width = '100%';
+        showResult();
+      }
+    }, 700);
+  }
+
+  function rankFor(score, total) {
+    const pct = score / total;
+    if (pct >= 0.9) return { label: '🏆 Certified Genius', tier: 'Top 1%' };
+    if (pct >= 0.7) return { label: '🚀 Big Brain', tier: 'Top 10%' };
+    if (pct >= 0.5) return { label: '✨ Sharp Mind', tier: 'Above Average' };
+    if (pct >= 0.3) return { label: '🙂 Casual Thinker', tier: 'Average' };
+    return { label: '☕ Needs More Coffee', tier: 'Keep Trying' };
+  }
+
+  function showResult() {
+    quizEl.classList.add('hidden');
+    resultEl.classList.remove('hidden');
+    const rank = rankFor(score, quiz.length);
+    document.getElementById('result-rank').textContent = rank.label;
+    document.getElementById('result-score').textContent =
+      `You scored ${score}/${quiz.length} — ${rank.tier}`;
+
+    document.getElementById('share-btn').onclick = () => {
+      const text = `I scored ${score}/${quiz.length} on The Genius Test and got "${rank.label}" (${rank.tier}). Think you can beat me? 🧠`;
+      const url = window.location.href;
+      if (navigator.share) {
+        navigator.share({ text, url }).catch(() => {});
+      } else {
+        navigator.clipboard.writeText(`${text} ${url}`).then(() => {
+          alert('Result copied — paste it anywhere!');
+        });
+      }
+    };
+  }
+
+  document.getElementById('start-btn').addEventListener('click', startQuiz);
+  document.getElementById('retry-btn').addEventListener('click', startQuiz);
+})();
+</script>
+
+</body>
+</html>
