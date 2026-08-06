@@ -170,6 +170,28 @@ Copy from `products/homegoing-tribute/gumroad-listing.md` → Pinterest Pin Copy
 
 ---
 
+## Products 3 & 4 (Universal Market Expansion): Wedding Speech Rescue + Memorial Tribute
+
+Portfolio direction update: all products target universal panic/pain buyers — deadline + high stakes + blank page. Cultural editions (like the Homegoing Kit) remain live as separate listings; universal editions widen the market.
+
+### Wedding Speech Rescue Kit ($27)
+- [ ] Assemble lead magnet PDF from `products/wedding-speech-rescue/lead-magnet-content.md` → `The-5-Minute-Wedding-Speech.pdf` → Drive → Zapier
+- [ ] Create Gumroad listing from `products/wedding-speech-rescue/gumroad-listing.md` (slug: `wedding-speech-rescue-kit`)
+- [ ] Write full kit content (20 scripts, 50 openers, 30 toasts, humor guide, delivery guide, emergency section) → ZIP → Gumroad
+- [ ] Domain: weddingspeechrescue.com (Hostinger → Cloudflare) → deploy `products/wedding-speech-rescue/index.html`
+- [ ] MailerLite tag: `wedding-speech` | Buyer tag: `buyer-wedding`
+- [ ] 3 Pinterest pins (copy in gumroad-listing.md) — NOTE: wedding boards are Pinterest's largest category; this product gets pin-refresh priority (3 new designs quarterly)
+
+### Memorial Tribute Kit ($27) — Universal edition of the Homegoing Kit
+- [ ] Build content ONCE for both editions — see Content Reuse Map in `products/memorial-tribute/gumroad-listing.md` (80% shared with homegoing kit; universal register + religious/secular variants)
+- [ ] Assemble lead magnet PDF from `products/memorial-tribute/lead-magnet-content.md` → `The-5-Minute-Eulogy-Starter.pdf` → Drive → Zapier
+- [ ] Create Gumroad listing (slug: `memorial-tribute-kit`) — keep the Homegoing Kit listing separate and live; they rank for different searches
+- [ ] Domain: memorialtributekit.com (Hostinger → Cloudflare) → deploy `products/memorial-tribute/index.html`
+- [ ] MailerLite tag: `memorial-kit` | Buyer tag: `buyer-memorial`
+- [ ] 3 Pinterest pins (copy in gumroad-listing.md)
+
+---
+
 ## Quick Reference: File Locations
 
 | Asset | Location |
@@ -180,6 +202,12 @@ Copy from `products/homegoing-tribute/gumroad-listing.md` → Pinterest Pin Copy
 | Homegoing Tribute landing page | `products/homegoing-tribute/index.html` |
 | Homegoing Tribute Gumroad copy | `products/homegoing-tribute/gumroad-listing.md` |
 | Homegoing Tribute lead magnet | `products/homegoing-tribute/lead-magnet-content.md` |
+| Wedding Speech landing page | `products/wedding-speech-rescue/index.html` |
+| Wedding Speech Gumroad copy | `products/wedding-speech-rescue/gumroad-listing.md` |
+| Wedding Speech lead magnet | `products/wedding-speech-rescue/lead-magnet-content.md` |
+| Memorial Tribute landing page | `products/memorial-tribute/index.html` |
+| Memorial Tribute Gumroad copy | `products/memorial-tribute/gumroad-listing.md` |
+| Memorial Tribute lead magnet | `products/memorial-tribute/lead-magnet-content.md` |
 | This checklist | `products/DEPLOYMENT-CHECKLIST.md` |
 | Full 10-product playbook | RISE 79 Gumroad Empire Playbook (artifact) |
 
