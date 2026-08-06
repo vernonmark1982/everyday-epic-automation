@@ -1,0 +1,878 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Homegoing Tribute Creation Kit — Write a Tribute They'll Remember Forever</title>
+<meta name="description" content="20 tribute scripts, 10 obituary templates, and 5 homegoing program layouts written in the language of Black church culture — for anyone who needs to honor someone beautifully with 48 hours and no words.">
+<meta property="og:title" content="Homegoing Tribute Creation Kit">
+<meta property="og:description" content="The only tribute and obituary system written specifically for Black homegoing services. 20 scripts, 10 obituaries, 5 program layouts. Instant delivery.">
+<meta property="og:type" content="website">
+
+<style>
+/* ── APEX TOKEN SYSTEM — Fire Palette ── */
+:root {
+  --bg:          #0E0308;
+  --bg-2:        #160407;
+  --bg-3:        #1f0609;
+  --bg-card:     rgba(22,4,7,0.92);
+  --fire:        #B12006;
+  --fire-h:      #d62a08;
+  --fire-glow:   rgba(177,32,6,0.35);
+  --fire-soft:   rgba(177,32,6,0.12);
+  --gold:        #FBAF0E;
+  --gold-dim:    rgba(251,175,14,0.10);
+  --gold-b:      rgba(251,175,14,0.14);
+  --amber:       #E8820C;
+  --amber-soft:  rgba(232,130,12,0.12);
+  --txt:         #ffffff;
+  --txt-2:       #C9A9A0;
+  --txt-3:       #6B4A44;
+  --glass:       rgba(255,255,255,0.04);
+  --ease:        cubic-bezier(0.4,0,0.2,1);
+  --mono:        'Courier New', Courier, monospace;
+  --serif:       Georgia, 'Times New Roman', serif;
+  --sans:        system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--txt-2);
+  font-family: var(--sans);
+  font-size: 18px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4 { font-family: var(--serif); text-wrap: balance; color: var(--txt); }
+strong { color: var(--txt); }
+a { color: var(--gold); text-underline-offset: 3px; }
+
+/* ── TOP FIRE BAR ── */
+.fire-bar {
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--bg), var(--fire), var(--gold), var(--fire), var(--bg));
+  box-shadow: 0 0 20px var(--fire-glow);
+}
+
+/* ── NAV ── */
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 24px;
+}
+.nav-brand {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--txt-3);
+}
+
+/* ── HERO ── */
+.hero {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 56px 24px 64px;
+  text-align: center;
+}
+.hero-eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--fire);
+  margin-bottom: 20px;
+}
+.hero h1 {
+  font-size: clamp(28px, 6vw, 50px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: var(--txt);
+  margin-bottom: 16px;
+}
+.hero h1 em {
+  font-style: normal;
+  color: var(--gold);
+}
+.hero-sub {
+  font-size: clamp(16px, 2.2vw, 19px);
+  color: var(--txt-2);
+  max-width: 560px;
+  margin: 0 auto 36px;
+  line-height: 1.7;
+}
+.hero-sub strong { color: var(--txt); }
+
+/* ── FREE MAGNET FORM ── */
+.magnet-box {
+  background: var(--bg-2);
+  border: 1px solid var(--gold-b);
+  border-radius: 16px;
+  padding: 36px 32px;
+  margin: 0 auto 16px;
+  max-width: 560px;
+  text-align: left;
+}
+.magnet-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 8px;
+}
+.magnet-title {
+  font-family: var(--serif);
+  font-size: clamp(18px, 3vw, 22px);
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 6px;
+  line-height: 1.3;
+}
+.magnet-desc {
+  font-size: 15px;
+  color: var(--txt-2);
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+.magnet-preview {
+  background: rgba(251,175,14,0.05);
+  border: 1px solid rgba(251,175,14,0.12);
+  border-radius: 8px;
+  padding: 16px 18px;
+  margin-bottom: 24px;
+  font-size: 14px;
+  font-style: italic;
+  color: var(--txt-2);
+  line-height: 1.75;
+  font-family: var(--serif);
+}
+.magnet-preview cite { font-style: normal; font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; color: var(--txt-3); display: block; margin-top: 8px; }
+
+/* ── EMAIL FORM ──
+   INTEGRATION: Replace this form with your MailerLite embed code.
+   MailerLite → Forms → Create Form → Embedded Form → copy the code.
+   Zapier workflow: New MailerLite subscriber → send freebie PDF link via email.
+── */
+.form-wrap { display: flex; flex-direction: column; gap: 10px; }
+.form-row { display: flex; gap: 10px; flex-wrap: wrap; }
+.form-input {
+  flex: 1;
+  min-width: 0;
+  background: var(--bg-3);
+  border: 1px solid var(--gold-b);
+  border-radius: 8px;
+  color: var(--txt);
+  font-size: 18px;
+  padding: 14px 18px;
+  outline: none;
+  transition: border-color 0.2s var(--ease), box-shadow 0.2s var(--ease);
+  min-height: 54px;
+}
+.form-input::placeholder { color: var(--txt-3); }
+.form-input:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(251,175,14,0.15);
+}
+.form-btn {
+  background: var(--fire);
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+  padding: 14px 28px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  min-height: 54px;
+  min-width: 200px;
+  transition: background 0.2s var(--ease), transform 0.2s var(--ease), box-shadow 0.2s var(--ease);
+  white-space: nowrap;
+}
+.form-btn:hover, .form-btn:focus-visible {
+  background: var(--fire-h);
+  transform: translateY(-1px);
+  box-shadow: 0 0 24px var(--fire-glow);
+  outline: none;
+}
+.form-btn:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+.form-note {
+  font-size: 12px;
+  color: var(--txt-3);
+  font-family: var(--mono);
+  letter-spacing: 0.03em;
+}
+.form-success {
+  display: none;
+  background: rgba(22,163,74,0.12);
+  border: 1px solid rgba(22,163,74,0.3);
+  border-radius: 8px;
+  padding: 16px 20px;
+  font-size: 16px;
+  color: #86efac;
+}
+.form-success strong { color: #fff; }
+
+.hero-trust {
+  font-size: 13px;
+  color: var(--txt-3);
+  font-family: var(--mono);
+  letter-spacing: 0.05em;
+}
+
+/* ── SECTION SEPARATOR ── */
+.sep {
+  max-width: 680px;
+  margin: 56px auto;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.sep-line { flex: 1; height: 1px; background: linear-gradient(90deg, transparent, var(--fire-soft), transparent); }
+.sep-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--fire); box-shadow: 0 0 8px var(--fire-glow); flex-shrink: 0; }
+
+/* ── WEDGE SECTION ── */
+.wedge {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 24px 56px;
+}
+.wedge-eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--txt-3);
+  margin-bottom: 20px;
+}
+.wedge h2 {
+  font-size: clamp(22px, 4vw, 34px);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  color: var(--txt);
+  margin-bottom: 24px;
+}
+.wedge h2 em { font-style: normal; color: var(--gold); }
+.wedge-body { font-size: 17px; color: var(--txt-2); line-height: 1.75; }
+
+.wedge-distinction {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 32px 0;
+}
+@media (max-width: 480px) { .wedge-distinction { grid-template-columns: 1fr; } }
+.wedge-col {
+  background: var(--bg-2);
+  border: 1px solid var(--gold-b);
+  border-radius: 10px;
+  padding: 20px;
+}
+.wedge-col-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.wedge-col-label.generic { color: var(--txt-3); }
+.wedge-col-label.cultural { color: var(--gold); }
+.wedge-col ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.wedge-col ul li { font-size: 14px; color: var(--txt-2); line-height: 1.55; padding-left: 14px; position: relative; }
+.wedge-col ul li::before { content: '·'; position: absolute; left: 0; }
+.wedge-col ul li.cultural-item::before { content: '✓'; color: var(--gold); }
+
+/* ── WHAT'S INSIDE SECTION ── */
+.inside {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 24px 56px;
+}
+.inside h2 {
+  font-size: clamp(20px, 3.5vw, 28px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+  color: var(--txt);
+}
+.inside-sub { font-size: 16px; color: var(--txt-2); margin-bottom: 32px; }
+
+.inside-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 32px;
+}
+.inside-card {
+  background: var(--glass);
+  border: 1px solid var(--gold-b);
+  border-radius: 10px;
+  padding: 22px 20px;
+}
+.inside-count {
+  font-family: var(--mono);
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--gold);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.inside-card h3 {
+  font-size: 15px;
+  font-family: var(--sans);
+  font-weight: 700;
+  color: var(--txt);
+  margin-bottom: 6px;
+}
+.inside-card p { font-size: 13px; color: var(--txt-2); line-height: 1.6; }
+
+.inside-bonus {
+  background: var(--bg-2);
+  border: 1px solid var(--gold-b);
+  border-left: 3px solid var(--gold);
+  border-radius: 10px;
+  padding: 20px 22px;
+  margin-bottom: 16px;
+}
+.inside-bonus-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 6px;
+}
+.inside-bonus h3 { font-size: 17px; font-family: var(--sans); font-weight: 700; color: var(--txt); margin-bottom: 4px; }
+.inside-bonus p { font-size: 14px; color: var(--txt-2); line-height: 1.6; }
+
+/* ── WHO THIS IS FOR ── */
+.who {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 24px 56px;
+}
+.who h2 {
+  font-size: clamp(20px, 3.5vw, 28px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 24px;
+  color: var(--txt);
+}
+.who-items {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+.who-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 16px;
+  color: var(--txt-2);
+  line-height: 1.55;
+}
+.who-mark {
+  font-family: var(--mono);
+  font-size: 14px;
+  color: var(--fire);
+  font-weight: 700;
+  flex-shrink: 0;
+  padding-top: 1px;
+}
+
+/* ── PRODUCT SECTION ── */
+.product {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 24px 80px;
+}
+.product-box {
+  background: var(--bg-card);
+  border: 1px solid var(--gold-b);
+  border-top: 3px solid var(--fire);
+  border-radius: 16px;
+  padding: 40px 36px;
+  backdrop-filter: blur(12px);
+}
+.product-eyebrow {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 10px;
+}
+.product-price-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+.product-price {
+  font-family: var(--mono);
+  font-size: 42px;
+  font-weight: 700;
+  color: var(--txt);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.03em;
+}
+.product-price-sub { font-size: 15px; color: var(--txt-3); font-family: var(--mono); }
+.product-box h2 {
+  font-size: clamp(24px, 4vw, 32px);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+.product-tagline { font-size: 17px; color: var(--txt-2); margin-bottom: 32px; line-height: 1.6; }
+
+.product-includes { margin-bottom: 32px; }
+.product-includes-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--txt-3);
+  margin-bottom: 16px;
+}
+.product-items { display: flex; flex-direction: column; gap: 10px; }
+.product-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 16px;
+  color: var(--txt-2);
+  line-height: 1.55;
+}
+.product-item-check {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--fire-soft);
+  border: 1px solid rgba(177,32,6,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+  font-size: 12px;
+  color: var(--gold);
+  font-weight: 700;
+}
+
+.product-packs {
+  background: var(--amber-soft);
+  border: 1px solid rgba(232,130,12,0.2);
+  border-radius: 8px;
+  padding: 16px 18px;
+  font-size: 14px;
+  color: var(--txt-2);
+  margin-bottom: 28px;
+  line-height: 1.65;
+}
+.product-packs strong { color: var(--amber); }
+
+.product-cta {
+  background: var(--fire);
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+  text-decoration: none;
+  text-align: center;
+  padding: 18px 32px;
+  border-radius: 10px;
+  min-height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s var(--ease), transform 0.2s var(--ease), box-shadow 0.2s var(--ease);
+  gap: 10px;
+}
+.product-cta:hover, .product-cta:focus-visible {
+  background: var(--fire-h);
+  transform: translateY(-2px);
+  box-shadow: 0 0 36px var(--fire-glow);
+  outline: none;
+  color: #fff;
+  text-decoration: none;
+}
+.product-cta:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+.cta-arrow { font-size: 22px; }
+
+.product-guarantee {
+  text-align: center;
+  margin-top: 14px;
+  font-size: 13px;
+  color: var(--txt-3);
+  font-family: var(--mono);
+  letter-spacing: 0.04em;
+}
+
+/* ── PACKS SECTION ── */
+.packs {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 24px 56px;
+}
+.packs h2 {
+  font-size: clamp(18px, 3vw, 24px);
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--txt);
+}
+.packs-sub { font-size: 15px; color: var(--txt-2); margin-bottom: 20px; }
+.packs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+}
+.pack-item {
+  background: var(--glass);
+  border: 1px solid var(--gold-b);
+  border-radius: 8px;
+  padding: 16px;
+}
+.pack-price { font-family: var(--mono); font-size: 18px; font-weight: 700; color: var(--gold); margin-bottom: 4px; font-variant-numeric: tabular-nums; }
+.pack-name { font-size: 14px; color: var(--txt-2); line-height: 1.5; }
+
+/* ── FOOTER ── */
+footer {
+  border-top: 1px solid rgba(251,175,14,0.06);
+  padding: 32px 24px;
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto;
+}
+.footer-brand {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--txt-3);
+  margin-bottom: 8px;
+}
+.footer-legal {
+  font-size: 12px;
+  color: var(--txt-3);
+  line-height: 1.6;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 540px) {
+  .hero { padding: 40px 20px 48px; }
+  .magnet-box { padding: 24px 20px; }
+  .wedge, .inside, .who, .product, .packs { padding-left: 20px; padding-right: 20px; }
+  .product-box { padding: 28px 20px; }
+  .form-row { flex-direction: column; }
+  .form-btn { min-width: 100%; }
+  .inside-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 380px) {
+  .inside-grid { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="fire-bar"></div>
+
+<!-- NAV -->
+<nav class="nav">
+  <span class="nav-brand">RISE 79 &nbsp;·&nbsp; Homegoing Tribute Kit</span>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow">Written in the Language of Black Church Culture</div>
+  <h1>Write a Tribute<br>They'll Remember<br><em>Forever</em></h1>
+  <p class="hero-sub">You have 48 hours. You have no words. The memorial industry will hand you a generic template that doesn't know a homegoing from a funeral, doesn't know "we come to celebrate" from "we come to mourn." <strong>This does.</strong></p>
+
+  <!-- FREE LEAD MAGNET BOX -->
+  <!-- INTEGRATION NOTE:
+       Replace the form below with your MailerLite embedded form code.
+       MailerLite → Forms → Create Form → Embedded → Copy Code
+       Zapier workflow: New MailerLite subscriber → send freebie PDF link via email.
+  -->
+  <div class="magnet-box">
+    <div class="magnet-label">Free — No Credit Card</div>
+    <div class="magnet-title">"The 5-Minute Obituary" — Free Fill-In Template</div>
+    <p class="magnet-desc">A single culturally written, fill-in-the-blank obituary template you can complete in 5 minutes and hand to the funeral home tonight. Written in the register of a homegoing, not a standard service.</p>
+
+    <div class="magnet-preview">
+      "On [date], God called home [Name], a beloved [mother / father / sister / brother / friend] whose presence in this world was a gift we did not deserve and cannot replace. We come today not in sorrow alone, but in celebration — of a life lived fully, a faith held firmly, and a love that does not end at the door of this sanctuary..."
+      <cite>— Opening from the free template</cite>
+    </div>
+
+    <div class="form-wrap">
+      <div class="form-row">
+        <input type="email" class="form-input" placeholder="Your email address" aria-label="Email address" autocomplete="email" id="hero-email">
+        <button type="button" class="form-btn" onclick="handleFormSubmit('hero-email','hero-form-success')">
+          Send the Free Template
+        </button>
+      </div>
+      <div class="form-success" id="hero-form-success">
+        <strong>Check your inbox.</strong> The 5-Minute Obituary template is on its way. Look for an email from RISE 79 within 5 minutes.
+      </div>
+      <span class="form-note">Delivered immediately · No spam · Unsubscribe any time</span>
+    </div>
+  </div>
+
+  <p class="hero-trust">PDF delivery · Works on any device · Print-ready · Available tonight</p>
+</section>
+
+<!-- SEPARATOR -->
+<div class="sep"><div class="sep-line"></div><div class="sep-dot"></div><div class="sep-line"></div></div>
+
+<!-- CULTURAL WEDGE SECTION -->
+<section class="wedge">
+  <div class="wedge-eyebrow">The Difference That Matters</div>
+  <h2>A Homegoing Is Not<br>a <em>Funeral.</em></h2>
+  <p class="wedge-body">The memorial industry has one template. It was written by and for a specific cultural tradition. When a Black family reaches for it at the worst moment of their year, what they get back is language that doesn't fit — formal where it should be warm, mournful where it should be triumphant, generic where it should carry the weight of a life that meant something specific.</p>
+
+  <div class="wedge-distinction">
+    <div class="wedge-col">
+      <div class="wedge-col-label generic">Generic Memorial Template</div>
+      <ul>
+        <li>Opens with loss and condolences</li>
+        <li>Formal, distant register</li>
+        <li>No celebration of life framing</li>
+        <li>Ignores church and faith language</li>
+        <li>No "going home" or homegoing framing</li>
+        <li>Writes for the grieving, not the celebrant</li>
+      </ul>
+    </div>
+    <div class="wedge-col">
+      <div class="wedge-col-label cultural">Homegoing Tribute Kit</div>
+      <ul>
+        <li class="cultural-item">Opens with celebration: "We come today not in sorrow alone..."</li>
+        <li class="cultural-item">Warm, full register — the voice of the community</li>
+        <li class="cultural-item">Homegoing as transition, not ending</li>
+        <li class="cultural-item">Praise, gospel, and faith woven throughout</li>
+        <li class="cultural-item">20 relationship-specific scripts (parent, sibling, sudden loss)</li>
+        <li class="cultural-item">Writes for the dignity the person deserved</li>
+      </ul>
+    </div>
+  </div>
+
+  <p class="wedge-body">No existing template product gets this right. We know — we searched. The gap in the market is as wide as the gap in the templates.</p>
+</section>
+
+<!-- SEPARATOR -->
+<div class="sep"><div class="sep-line"></div><div class="sep-dot"></div><div class="sep-line"></div></div>
+
+<!-- WHAT'S INSIDE -->
+<section class="inside">
+  <h2>What's Inside the Kit</h2>
+  <p class="inside-sub">Everything you need to honor someone beautifully — at 11 PM with 36 hours left, or with a week to plan.</p>
+
+  <div class="inside-grid">
+    <div class="inside-card">
+      <div class="inside-count">20</div>
+      <h3>Tribute Scripts</h3>
+      <p>By relationship — parent, sibling, child, spouse, friend, sudden loss, elder, mentor. Each ready to use or personalize.</p>
+    </div>
+    <div class="inside-card">
+      <div class="inside-count">10</div>
+      <h3>Obituary Templates</h3>
+      <p>Different lengths, different tones, different community contexts. Short for programs, long for the program bulletin.</p>
+    </div>
+    <div class="inside-card">
+      <div class="inside-count">5</div>
+      <h3>Program Layouts</h3>
+      <p>Church homegoing service programs, complete with order of service, scripture, and responsive reading sections.</p>
+    </div>
+    <div class="inside-card">
+      <div class="inside-count">1</div>
+      <h3>Emergency Guide</h3>
+      <p>"What to Say When You Have No Words" — for the person delivering remarks who never expected to be there.</p>
+    </div>
+  </div>
+
+  <div class="inside-bonus">
+    <div class="inside-bonus-label">Included · No Extra Charge</div>
+    <h3>Sudden Loss Supplement</h3>
+    <p>A dedicated section for unexpected deaths — the tribute that has to hold more grief in less preparation time. Different scripts, different framing, different language for a different kind of loss.</p>
+  </div>
+
+  <div class="inside-bonus">
+    <div class="inside-bonus-label">Included · No Extra Charge</div>
+    <h3>Relationship Modifier Guide</h3>
+    <p>Instructions for adapting any template to any specific relationship — including complex ones (estranged, remarried, blended families, found family). Because real families don't fit a standard template either.</p>
+  </div>
+</section>
+
+<!-- SEPARATOR -->
+<div class="sep"><div class="sep-line"></div><div class="sep-dot"></div><div class="sep-line"></div></div>
+
+<!-- WHO THIS IS FOR -->
+<section class="who">
+  <h2>Who Reaches for This</h2>
+  <div class="who-items">
+    <div class="who-item">
+      <span class="who-mark">→</span>
+      <span>The daughter who just got the call and has to speak at the service in three days and has never done this before</span>
+    </div>
+    <div class="who-item">
+      <span class="who-mark">→</span>
+      <span>The church secretary writing the program at midnight because the family couldn't get it together</span>
+    </div>
+    <div class="who-item">
+      <span class="who-mark">→</span>
+      <span>The family matriarch who carries these moments and needs something worthy of who she's honoring</span>
+    </div>
+    <div class="who-item">
+      <span class="who-mark">→</span>
+      <span>The son who lost his words the moment he lost his father and cannot write this alone</span>
+    </div>
+    <div class="who-item">
+      <span class="who-mark">→</span>
+      <span>The pastor who needs a program layout by Friday for a family he met on Tuesday</span>
+    </div>
+  </div>
+  <p style="font-size:16px;color:var(--txt-2);">They all find the same thing when they search online: templates that don't know a homegoing from a funeral. This is what they've been looking for.</p>
+</section>
+
+<!-- SEPARATOR -->
+<div class="sep"><div class="sep-line"></div><div class="sep-dot"></div><div class="sep-line"></div></div>
+
+<!-- PRODUCT SECTION -->
+<section class="product">
+  <div class="product-box">
+    <div class="product-eyebrow">Complete Kit — Instant Gumroad Delivery</div>
+    <div class="product-price-row">
+      <span class="product-price">$27</span>
+      <span class="product-price-sub">one-time · instant download</span>
+    </div>
+    <h2>Homegoing Tribute Creation Kit</h2>
+    <p class="product-tagline">20 tribute scripts. 10 obituary templates. 5 program layouts. The emergency guide. Written in the language of Black church culture and delivered to your inbox the moment you purchase. No waiting. No shipping. Available tonight.</p>
+
+    <div class="product-includes">
+      <div class="product-includes-label">Everything Included</div>
+      <div class="product-items">
+        <div class="product-item">
+          <span class="product-item-check">✓</span>
+          <span><strong>20 Tribute Scripts</strong> — Relationship-specific: parent, sibling, child, spouse, close friend, mentor, elder, sudden loss, and more. Each written in homegoing register. Use as-is or personalize with specifics from their life.</span>
+        </div>
+        <div class="product-item">
+          <span class="product-item-check">✓</span>
+          <span><strong>10 Obituary Templates</strong> — Different lengths for different purposes: short (program insert), standard (funeral home booklet), extended (celebration of life program). All culturally specific.</span>
+        </div>
+        <div class="product-item">
+          <span class="product-item-check">✓</span>
+          <span><strong>5 Homegoing Service Program Layouts</strong> — Complete order of service with scripture, responsive reading, tribute placement, musical selections, and repast details. Print-ready PDF format.</span>
+        </div>
+        <div class="product-item">
+          <span class="product-item-check">✓</span>
+          <span><strong>"What to Say When You Have No Words"</strong> — The emergency guide for the person who has to speak and cannot find the words. Open remarks, closing benedictions, and in-the-moment prompts for the hardest moments.</span>
+        </div>
+        <div class="product-item">
+          <span class="product-item-check">✓</span>
+          <span><strong>Sudden Loss Supplement</strong> — Dedicated scripts and obituary language for unexpected deaths. Different emotional register. Different level of grief. Written for the weight of what it is.</span>
+        </div>
+        <div class="product-item">
+          <span class="product-item-check">✓</span>
+          <span><strong>Relationship Modifier Guide</strong> — Instructions for adapting any template to complex family structures: estranged, blended, found family, multi-generational loss.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-packs">
+      <strong>Specialty Packs — Available Separately.</strong> Children's Tributes ($17), Veterans Homegoing Pack ($17), Sudden Loss Tributes ($17), First Anniversary Memorial ($9). Each extends the kit for a specific moment. Buyer email list gets first access.
+    </div>
+
+    <!-- INTEGRATION NOTE: Replace href="#" with your actual Gumroad product URL.
+         Format: https://[your-store].gumroad.com/l/[product-slug]
+         Keep ?wanted=true appended for direct checkout. -->
+    <a href="#" class="product-cta" id="gumroad-cta" rel="noopener noreferrer">
+      Get the Homegoing Tribute Kit — $27
+      <span class="cta-arrow">→</span>
+    </a>
+
+    <p class="product-guarantee">Instant download after purchase · All PDFs · Print-ready · Available tonight</p>
+  </div>
+</section>
+
+<!-- PACKS SECTION -->
+<section class="packs">
+  <h2>Specialty Packs — Sold Separately</h2>
+  <p class="packs-sub">Each pack extends the kit into a specific tribute context. Buyers of the main kit receive first access via email.</p>
+  <div class="packs-grid">
+    <div class="pack-item">
+      <div class="pack-price">$17</div>
+      <div class="pack-name">Children's & Infant Tributes Pack</div>
+    </div>
+    <div class="pack-item">
+      <div class="pack-price">$17</div>
+      <div class="pack-name">Veterans Homegoing Pack</div>
+    </div>
+    <div class="pack-item">
+      <div class="pack-price">$17</div>
+      <div class="pack-name">Sudden Loss Tribute Expansion</div>
+    </div>
+    <div class="pack-item">
+      <div class="pack-price">$9</div>
+      <div class="pack-name">First Anniversary Memorial Guide</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">RISE 79 — Independent Cultural Education</div>
+  <p class="footer-legal">
+    All content is for personal and family use. Templates are starting points — personalize them with the details of the person you're honoring. Products are delivered digitally via Gumroad immediately after purchase. This is not a professional bereavement counseling service.
+  </p>
+</footer>
+
+<script>
+/* Form submission handler — replace with MailerLite embedded form when live.
+   When MailerLite embed code is in place, remove this function and the onclick attributes. */
+function handleFormSubmit(inputId, successId) {
+  var input = document.getElementById(inputId);
+  var success = document.getElementById(successId);
+  var email = input ? input.value.trim() : '';
+
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    input.focus();
+    input.style.borderColor = 'var(--fire)';
+    input.style.boxShadow = '0 0 0 3px rgba(177,32,6,0.2)';
+    setTimeout(function() {
+      input.style.borderColor = '';
+      input.style.boxShadow = '';
+    }, 1500);
+    return;
+  }
+
+  /* Replace this with MailerLite embed form submission. */
+  console.log('Subscriber:', email, '— wire up MailerLite here');
+
+  var row = input.closest('.form-row');
+  if (row) row.style.display = 'none';
+  if (success) { success.style.display = 'block'; }
+}
+
+window.onerror = function() { return true; };
+</script>
+
+</body>
+</html>
