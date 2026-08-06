@@ -192,6 +192,40 @@ Portfolio direction update: all products target universal panic/pain buyers — 
 
 ---
 
+## Night Frequency ($17) — The Uncopiable Flagship
+
+The advisory group's top-ranked product: original OBSIDIAN HOUR music IP. Unlike the template products, this cannot be cloned, and one production session feeds Gumroad + DistroKid streaming + YouTube Content ID + sync licensing. Build order differs — production comes before the listing.
+
+### Production First (the asset)
+- [ ] Generate all 10 tracks from `products/night-frequency/song-specs.md` (Suno / vidiq_generate_music). Tracks 01, 03, 10 are fully specced; 02, 04–09 follow the production matrix.
+- [ ] Run each track through the Quality Gate in song-specs.md (4kHz ceiling, descending-contour rule, no artist names, design-intent framing).
+- [ ] Master for headphones. Export high-quality MP3. Total ~79 min.
+- [ ] Generate cover art per each track's COVER ART DIRECTION (image-prompt-engine standard, fire palette, no golden hour).
+
+### Parallel Streaming Asset (do NOT skip — this is why it's the winner)
+- [ ] DistroKid: distribute all 10 tracks as the *Night Frequency* album (Spotify, Apple, Amazon, etc.)
+- [ ] Enable YouTube Content ID via DistroKid
+- [ ] Produce one 1-hour long-form YouTube video with the full collection → AdSense + pinned Gumroad link
+- [ ] Log sync-licensing candidates (targets named per track in song-specs.md)
+
+### Gumroad + Funnel
+- [ ] Bundle 10 MP3s + Sleep Protocol PDF into ZIP → Gumroad listing from `products/night-frequency/gumroad-listing.md` (slug: `night-frequency`, $17)
+- [ ] Host 3 free tracks (01, 02, 10) on Cloudflare R2 or your domain — NOT hotlinked externally
+- [ ] Assemble lead magnet: 3 free MP3s + `Night-Frequency-Sleep-Protocol-Starter.pdf` from `products/night-frequency/lead-magnet-content.md`
+- [ ] Zapier: new subscriber → email the 3 free track links + starter PDF
+- [ ] Domain: nightfrequency.com (Hostinger → Cloudflare) → deploy `products/night-frequency/index.html`
+- [ ] Wire real 30s audio previews into the landing page (integration note in index.html source)
+- [ ] MailerLite tag: `night-frequency` | Buyer tag: `buyer-nightfreq`
+- [ ] 3 Pinterest pins (copy in gumroad-listing.md)
+
+### Repeat Engine
+- [ ] Seasonal drops as separate Gumroad listings: Summer Nights ($9), Winter Deep ($9), Deep Focus for Night Shift ($17) — each also goes to DistroKid
+- [ ] Buyer email list gets every drop first
+
+**LLC trigger reminder:** the moment any earnings are reported from Night Frequency (Gumroad OR DistroKid streaming), remind Mr. Rise 79 to file the Rise 79 LLC (~$300, Secretary of State).
+
+---
+
 ## Quick Reference: File Locations
 
 | Asset | Location |
@@ -208,6 +242,10 @@ Portfolio direction update: all products target universal panic/pain buyers — 
 | Memorial Tribute landing page | `products/memorial-tribute/index.html` |
 | Memorial Tribute Gumroad copy | `products/memorial-tribute/gumroad-listing.md` |
 | Memorial Tribute lead magnet | `products/memorial-tribute/lead-magnet-content.md` |
+| Night Frequency landing page | `products/night-frequency/index.html` |
+| Night Frequency Gumroad copy | `products/night-frequency/gumroad-listing.md` |
+| Night Frequency lead magnet | `products/night-frequency/lead-magnet-content.md` |
+| Night Frequency album spec (12-Field) | `products/night-frequency/song-specs.md` |
 | This checklist | `products/DEPLOYMENT-CHECKLIST.md` |
 | Full 10-product playbook | RISE 79 Gumroad Empire Playbook (artifact) |
 
