@@ -1,0 +1,863 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wedding Speech Rescue Kit — Write a Speech They'll Remember (For the Right Reasons)</title>
+<meta name="description" content="20 complete wedding speech scripts — best man, maid of honor, parents of the couple — plus 50 openers, 30 toasts, and the delivery guide that keeps your hands steady. The wedding is Saturday. Your speech is ready tonight.">
+<meta property="og:title" content="Wedding Speech Rescue Kit">
+<meta property="og:description" content="The wedding is Saturday. The speech is due. 20 complete scripts by role, 50 openers, 30 toasts. Instant download.">
+<meta property="og:type" content="website">
+
+<style>
+/* ── APEX TOKEN SYSTEM — Fire Palette ── */
+:root {
+  --bg:          #0E0308;
+  --bg-2:        #160407;
+  --bg-3:        #1f0609;
+  --bg-card:     rgba(22,4,7,0.92);
+  --fire:        #B12006;
+  --fire-h:      #d62a08;
+  --fire-glow:   rgba(177,32,6,0.35);
+  --fire-soft:   rgba(177,32,6,0.12);
+  --gold:        #FBAF0E;
+  --gold-dim:    rgba(251,175,14,0.10);
+  --gold-b:      rgba(251,175,14,0.14);
+  --amber:       #E8820C;
+  --amber-soft:  rgba(232,130,12,0.12);
+  --txt:         #ffffff;
+  --txt-2:       #C9A9A0;
+  --txt-3:       #6B4A44;
+  --glass:       rgba(255,255,255,0.04);
+  --ease:        cubic-bezier(0.4,0,0.2,1);
+  --mono:        'Courier New', Courier, monospace;
+  --serif:       Georgia, 'Times New Roman', serif;
+  --sans:        system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--txt-2);
+  font-family: var(--sans);
+  font-size: 18px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4 { font-family: var(--serif); text-wrap: balance; color: var(--txt); }
+strong { color: var(--txt); }
+a { color: var(--gold); text-underline-offset: 3px; }
+
+.fire-bar {
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--bg), var(--fire), var(--gold), var(--fire), var(--bg));
+  box-shadow: 0 0 20px var(--fire-glow);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 24px;
+}
+.nav-brand {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--txt-3);
+}
+
+/* ── HERO ── */
+.hero {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 56px 24px 64px;
+  text-align: center;
+}
+.hero-eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--fire);
+  margin-bottom: 20px;
+}
+.hero h1 {
+  font-size: clamp(28px, 6vw, 50px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: var(--txt);
+  margin-bottom: 16px;
+}
+.hero h1 em { font-style: normal; color: var(--gold); }
+.hero-sub {
+  font-size: clamp(16px, 2.2vw, 19px);
+  color: var(--txt-2);
+  max-width: 560px;
+  margin: 0 auto 36px;
+  line-height: 1.7;
+}
+.hero-sub strong { color: var(--txt); }
+
+/* ── FREE MAGNET FORM ── */
+.magnet-box {
+  background: var(--bg-2);
+  border: 1px solid var(--gold-b);
+  border-radius: 16px;
+  padding: 36px 32px;
+  margin: 0 auto 16px;
+  max-width: 560px;
+  text-align: left;
+}
+.magnet-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 8px;
+}
+.magnet-title {
+  font-family: var(--serif);
+  font-size: clamp(18px, 3vw, 22px);
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 6px;
+  line-height: 1.3;
+}
+.magnet-desc {
+  font-size: 15px;
+  color: var(--txt-2);
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+.magnet-preview {
+  background: rgba(251,175,14,0.05);
+  border: 1px solid rgba(251,175,14,0.12);
+  border-radius: 8px;
+  padding: 16px 18px;
+  margin-bottom: 24px;
+  font-size: 14px;
+  font-style: italic;
+  color: var(--txt-2);
+  line-height: 1.75;
+  font-family: var(--serif);
+}
+.magnet-preview cite { font-style: normal; font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; color: var(--txt-3); display: block; margin-top: 8px; }
+
+/* ── EMAIL FORM ──
+   INTEGRATION: Replace this form with your MailerLite embed code.
+   MailerLite → Forms → Create Form → Embedded Form → copy the code.
+   Zapier workflow: New MailerLite subscriber → send freebie PDF link via email.
+── */
+.form-wrap { display: flex; flex-direction: column; gap: 10px; }
+.form-row { display: flex; gap: 10px; flex-wrap: wrap; }
+.form-input {
+  flex: 1;
+  min-width: 0;
+  background: var(--bg-3);
+  border: 1px solid var(--gold-b);
+  border-radius: 8px;
+  color: var(--txt);
+  font-size: 18px;
+  padding: 14px 18px;
+  outline: none;
+  transition: border-color 0.2s var(--ease), box-shadow 0.2s var(--ease);
+  min-height: 54px;
+}
+.form-input::placeholder { color: var(--txt-3); }
+.form-input:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(251,175,14,0.15);
+}
+.form-btn {
+  background: var(--fire);
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+  padding: 14px 28px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  min-height: 54px;
+  min-width: 200px;
+  transition: background 0.2s var(--ease), transform 0.2s var(--ease), box-shadow 0.2s var(--ease);
+  white-space: nowrap;
+}
+.form-btn:hover, .form-btn:focus-visible {
+  background: var(--fire-h);
+  transform: translateY(-1px);
+  box-shadow: 0 0 24px var(--fire-glow);
+  outline: none;
+}
+.form-btn:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+.form-note {
+  font-size: 12px;
+  color: var(--txt-3);
+  font-family: var(--mono);
+  letter-spacing: 0.03em;
+}
+.form-success {
+  display: none;
+  background: rgba(22,163,74,0.12);
+  border: 1px solid rgba(22,163,74,0.3);
+  border-radius: 8px;
+  padding: 16px 20px;
+  font-size: 16px;
+  color: #86efac;
+}
+.form-success strong { color: #fff; }
+
+.hero-trust {
+  font-size: 13px;
+  color: var(--txt-3);
+  font-family: var(--mono);
+  letter-spacing: 0.05em;
+}
+
+/* ── SECTION SEPARATOR ── */
+.sep {
+  max-width: 680px;
+  margin: 56px auto;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.sep-line { flex: 1; height: 1px; background: linear-gradient(90deg, transparent, var(--fire-soft), transparent); }
+.sep-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--fire); box-shadow: 0 0 8px var(--fire-glow); flex-shrink: 0; }
+
+/* ── PANIC SECTION ── */
+.panic {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 24px 56px;
+}
+.panic-eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--txt-3);
+  margin-bottom: 20px;
+}
+.panic h2 {
+  font-size: clamp(22px, 4vw, 34px);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  color: var(--txt);
+  margin-bottom: 24px;
+}
+.panic h2 em { font-style: normal; color: var(--fire); }
+.panic-body { font-size: 17px; color: var(--txt-2); line-height: 1.75; }
+
+.fear-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin: 32px 0;
+}
+.fear-card {
+  background: var(--bg-2);
+  border: 1px solid var(--gold-b);
+  border-radius: 10px;
+  padding: 20px;
+}
+.fear-card-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--fire);
+  margin-bottom: 8px;
+}
+.fear-card p { font-size: 15px; color: var(--txt-2); line-height: 1.6; }
+
+/* ── WHAT'S INSIDE ── */
+.inside {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 24px 56px;
+}
+.inside h2 {
+  font-size: clamp(20px, 3.5vw, 28px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+  color: var(--txt);
+}
+.inside-sub { font-size: 16px; color: var(--txt-2); margin-bottom: 32px; }
+
+.inside-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 32px;
+}
+.inside-card {
+  background: var(--glass);
+  border: 1px solid var(--gold-b);
+  border-radius: 10px;
+  padding: 22px 20px;
+}
+.inside-count {
+  font-family: var(--mono);
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--gold);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.inside-card h3 {
+  font-size: 15px;
+  font-family: var(--sans);
+  font-weight: 700;
+  color: var(--txt);
+  margin-bottom: 6px;
+}
+.inside-card p { font-size: 13px; color: var(--txt-2); line-height: 1.6; }
+
+.inside-bonus {
+  background: var(--bg-2);
+  border: 1px solid var(--gold-b);
+  border-left: 3px solid var(--gold);
+  border-radius: 10px;
+  padding: 20px 22px;
+  margin-bottom: 16px;
+}
+.inside-bonus-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 6px;
+}
+.inside-bonus h3 { font-size: 17px; font-family: var(--sans); font-weight: 700; color: var(--txt); margin-bottom: 4px; }
+.inside-bonus p { font-size: 14px; color: var(--txt-2); line-height: 1.6; }
+
+/* ── WHO THIS IS FOR ── */
+.who {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 24px 56px;
+}
+.who h2 {
+  font-size: clamp(20px, 3.5vw, 28px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 24px;
+  color: var(--txt);
+}
+.who-items {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+.who-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 16px;
+  color: var(--txt-2);
+  line-height: 1.55;
+}
+.who-mark {
+  font-family: var(--mono);
+  font-size: 14px;
+  color: var(--fire);
+  font-weight: 700;
+  flex-shrink: 0;
+  padding-top: 1px;
+}
+
+/* ── PRODUCT SECTION ── */
+.product {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 24px 80px;
+}
+.product-box {
+  background: var(--bg-card);
+  border: 1px solid var(--gold-b);
+  border-top: 3px solid var(--fire);
+  border-radius: 16px;
+  padding: 40px 36px;
+  backdrop-filter: blur(12px);
+}
+.product-eyebrow {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 10px;
+}
+.product-price-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+.product-price {
+  font-family: var(--mono);
+  font-size: 42px;
+  font-weight: 700;
+  color: var(--txt);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.03em;
+}
+.product-price-sub { font-size: 15px; color: var(--txt-3); font-family: var(--mono); }
+.product-box h2 {
+  font-size: clamp(24px, 4vw, 32px);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+.product-tagline { font-size: 17px; color: var(--txt-2); margin-bottom: 32px; line-height: 1.6; }
+
+.product-includes { margin-bottom: 32px; }
+.product-includes-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--txt-3);
+  margin-bottom: 16px;
+}
+.product-items { display: flex; flex-direction: column; gap: 10px; }
+.product-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 16px;
+  color: var(--txt-2);
+  line-height: 1.55;
+}
+.product-item-check {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--fire-soft);
+  border: 1px solid rgba(177,32,6,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+  font-size: 12px;
+  color: var(--gold);
+  font-weight: 700;
+}
+
+.product-packs {
+  background: var(--amber-soft);
+  border: 1px solid rgba(232,130,12,0.2);
+  border-radius: 8px;
+  padding: 16px 18px;
+  font-size: 14px;
+  color: var(--txt-2);
+  margin-bottom: 28px;
+  line-height: 1.65;
+}
+.product-packs strong { color: var(--amber); }
+
+.product-cta {
+  background: var(--fire);
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+  text-decoration: none;
+  text-align: center;
+  padding: 18px 32px;
+  border-radius: 10px;
+  min-height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s var(--ease), transform 0.2s var(--ease), box-shadow 0.2s var(--ease);
+  gap: 10px;
+}
+.product-cta:hover, .product-cta:focus-visible {
+  background: var(--fire-h);
+  transform: translateY(-2px);
+  box-shadow: 0 0 36px var(--fire-glow);
+  outline: none;
+  color: #fff;
+  text-decoration: none;
+}
+.product-cta:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+.cta-arrow { font-size: 22px; }
+
+.product-guarantee {
+  text-align: center;
+  margin-top: 14px;
+  font-size: 13px;
+  color: var(--txt-3);
+  font-family: var(--mono);
+  letter-spacing: 0.04em;
+}
+
+/* ── PACKS SECTION ── */
+.packs {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 24px 56px;
+}
+.packs h2 {
+  font-size: clamp(18px, 3vw, 24px);
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--txt);
+}
+.packs-sub { font-size: 15px; color: var(--txt-2); margin-bottom: 20px; }
+.packs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+}
+.pack-item {
+  background: var(--glass);
+  border: 1px solid var(--gold-b);
+  border-radius: 8px;
+  padding: 16px;
+}
+.pack-price { font-family: var(--mono); font-size: 18px; font-weight: 700; color: var(--gold); margin-bottom: 4px; font-variant-numeric: tabular-nums; }
+.pack-name { font-size: 14px; color: var(--txt-2); line-height: 1.5; }
+
+/* ── FOOTER ── */
+footer {
+  border-top: 1px solid rgba(251,175,14,0.06);
+  padding: 32px 24px;
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto;
+}
+.footer-brand {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--txt-3);
+  margin-bottom: 8px;
+}
+.footer-legal {
+  font-size: 12px;
+  color: var(--txt-3);
+  line-height: 1.6;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 540px) {
+  .hero { padding: 40px 20px 48px; }
+  .magnet-box { padding: 24px 20px; }
+  .panic, .inside, .who, .product, .packs { padding-left: 20px; padding-right: 20px; }
+  .product-box { padding: 28px 20px; }
+  .form-row { flex-direction: column; }
+  .form-btn { min-width: 100%; }
+  .inside-grid { grid-template-columns: 1fr 1fr; }
+  .fear-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 380px) {
+  .inside-grid { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="fire-bar"></div>
+
+<!-- NAV -->
+<nav class="nav">
+  <span class="nav-brand">RISE 79 &nbsp;·&nbsp; Wedding Speech Rescue</span>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow">The Wedding Is Saturday. The Speech Is Due.</div>
+  <h1>Write a Speech<br>They'll Remember<br><em>For the Right Reasons</em></h1>
+  <p class="hero-sub">You said yes to the honor months ago. Now it's real, the date is close, and the page is still blank. You don't need a writing course. <strong>You need a finished speech tonight — one that sounds like you, lands the laughs, and doesn't fall apart at the toast.</strong></p>
+
+  <!-- FREE LEAD MAGNET BOX -->
+  <!-- INTEGRATION NOTE:
+       Replace the form below with your MailerLite embedded form code.
+       MailerLite → Forms → Create Form → Embedded → Copy Code
+       Zapier workflow: New MailerLite subscriber → send freebie PDF link via email.
+  -->
+  <div class="magnet-box">
+    <div class="magnet-label">Free — No Credit Card</div>
+    <div class="magnet-title">"The 5-Minute Wedding Speech" — Free Fill-In Template</div>
+    <p class="magnet-desc">One complete fill-in-the-blank speech that works for any role — best man, maid of honor, parent of the couple. Fill it in tonight, practice it twice, deliver it Saturday. Instant delivery to your inbox.</p>
+
+    <div class="magnet-preview">
+      "For everyone who doesn't know me, I'm [name], and I've had the privilege of being [Name]'s [brother / sister / best friend / father / mother] for [number] years. Which means I've seen things tonight's couple would prefer stayed private — and paid good money for this microphone..."
+      <cite>— Opening from the free template</cite>
+    </div>
+
+    <div class="form-wrap">
+      <div class="form-row">
+        <input type="email" class="form-input" placeholder="Your email address" aria-label="Email address" autocomplete="email" id="hero-email">
+        <button type="button" class="form-btn" onclick="handleFormSubmit('hero-email','hero-form-success')">
+          Send the Free Template
+        </button>
+      </div>
+      <div class="form-success" id="hero-form-success">
+        <strong>Check your inbox.</strong> The 5-Minute Wedding Speech template is on its way. Look for an email from RISE 79 within 5 minutes.
+      </div>
+      <span class="form-note">Delivered immediately · No spam · Unsubscribe any time</span>
+    </div>
+  </div>
+
+  <p class="hero-trust">Instant PDF delivery · Works on any device · Ready to practice tonight</p>
+</section>
+
+<!-- SEPARATOR -->
+<div class="sep"><div class="sep-line"></div><div class="sep-dot"></div><div class="sep-line"></div></div>
+
+<!-- PANIC SECTION -->
+<section class="panic">
+  <div class="panic-eyebrow">Why the Page Is Still Blank</div>
+  <h2>Everyone will be watching.<br>And you only get <em>one take.</em></h2>
+  <p class="panic-body">A wedding speech is the highest-pressure three minutes most people ever perform. There's no rehearsal audience, no second chance, and the whole room is holding a phone camera. The reason you haven't written it isn't laziness. It's that the stakes are real and nobody ever taught you the structure.</p>
+
+  <div class="fear-grid">
+    <div class="fear-card">
+      <div class="fear-card-label">The Blank Page Problem</div>
+      <p>You know the stories. You don't know which one to tell, how to open, or how to get from "funny story" to "sincere toast" without the gears grinding. Structure is the missing piece — and structure is exactly what a script gives you.</p>
+    </div>
+    <div class="fear-card">
+      <div class="fear-card-label">The Humor Trap</div>
+      <p>The line between "the room roars" and "the room goes quiet" is thinner than it looks. Inside jokes die in big rooms. Exes are radioactive. The kit's humor calibration guide marks exactly where the line is — so you're funny without bombing.</p>
+    </div>
+    <div class="fear-card">
+      <div class="fear-card-label">The Length Problem</div>
+      <p>Under 2 minutes reads as not caring. Over 6 minutes loses the room. Every script in the kit is built to a 3–4 minute delivery, timed, with cut points marked if you need it shorter.</p>
+    </div>
+    <div class="fear-card">
+      <div class="fear-card-label">The Nerves Problem</div>
+      <p>Shaking hands, dry mouth, racing heart — normal, and manageable with the right prep. The delivery guide covers the 24-hour countdown: what to practice, what to eat, what to do with your hands, and where to look.</p>
+    </div>
+  </div>
+
+  <p class="panic-body">Every script in this kit already solved these problems. You add the names and one true story. The structure does the rest.</p>
+</section>
+
+<!-- SEPARATOR -->
+<div class="sep"><div class="sep-line"></div><div class="sep-dot"></div><div class="sep-line"></div></div>
+
+<!-- WHAT'S INSIDE -->
+<section class="inside">
+  <h2>What's Inside the Kit</h2>
+  <p class="inside-sub">Everything you need whether the wedding is in three months or three days.</p>
+
+  <div class="inside-grid">
+    <div class="inside-card">
+      <div class="inside-count">20</div>
+      <h3>Complete Speech Scripts</h3>
+      <p>By role and tone: best man (funny, heartfelt, brother, oldest friend), maid of honor (funny, heartfelt, sister, oldest friend), father and mother of the bride and groom, sibling, and more.</p>
+    </div>
+    <div class="inside-card">
+      <div class="inside-count">50</div>
+      <h3>Opening Lines</h3>
+      <p>The first 15 seconds decide whether the room is with you. 50 tested openers by style — funny, warm, self-deprecating, formal — ready to drop into any script.</p>
+    </div>
+    <div class="inside-card">
+      <div class="inside-count">30</div>
+      <h3>Toasts &amp; Closers</h3>
+      <p>The landing matters as much as the takeoff. 30 toast lines from classic to modern, so your glass raise gets the moment it deserves.</p>
+    </div>
+    <div class="inside-card">
+      <div class="inside-count">1</div>
+      <h3>Delivery Guide</h3>
+      <p>The 24-hour countdown: how to practice, how to handle nerves, pacing marks, where to look, and what to do with the drink in your hand.</p>
+    </div>
+  </div>
+
+  <div class="inside-bonus">
+    <div class="inside-bonus-label">Included · No Extra Charge</div>
+    <h3>The "Funny Without Bombing" Humor Guide</h3>
+    <p>The rules of wedding humor: which stories work in a room of 150 strangers, which die, and the topics that are always off the table (exes, money, anything the couple hasn't told both families). Includes the roast-to-toast pivot — the one move every great best man speech shares.</p>
+  </div>
+
+  <div class="inside-bonus">
+    <div class="inside-bonus-label">Included · No Extra Charge</div>
+    <h3>The "Asked to Speak Tonight" Emergency Section</h3>
+    <p>Surprise toasts happen — at the rehearsal dinner, at the reception, when the DJ hands you the mic. Three 60-second speeches you can personalize in the hallway on your phone.</p>
+  </div>
+</section>
+
+<!-- SEPARATOR -->
+<div class="sep"><div class="sep-line"></div><div class="sep-dot"></div><div class="sep-line"></div></div>
+
+<!-- WHO THIS IS FOR -->
+<section class="who">
+  <h2>Who Reaches for This</h2>
+  <div class="who-items">
+    <div class="who-item">
+      <span class="who-mark">→</span>
+      <span>The best man who's hilarious in the group chat and frozen in front of a crowd</span>
+    </div>
+    <div class="who-item">
+      <span class="who-mark">→</span>
+      <span>The maid of honor who has fifteen years of stories and no idea which one to tell</span>
+    </div>
+    <div class="who-item">
+      <span class="who-mark">→</span>
+      <span>The father of the bride who has been dreading this microphone since the engagement</span>
+    </div>
+    <div class="who-item">
+      <span class="who-mark">→</span>
+      <span>The mother of the groom who wants three minutes worthy of thirty years</span>
+    </div>
+    <div class="who-item">
+      <span class="who-mark">→</span>
+      <span>The sibling who found out at the rehearsal dinner that they're expected to say something</span>
+    </div>
+  </div>
+  <p style="font-size:16px;color:var(--txt-2);">They all search the same thing at the same hour: "wedding speech template" at 11 PM, days before the wedding. This is what they need to find.</p>
+</section>
+
+<!-- SEPARATOR -->
+<div class="sep"><div class="sep-line"></div><div class="sep-dot"></div><div class="sep-line"></div></div>
+
+<!-- PRODUCT SECTION -->
+<section class="product">
+  <div class="product-box">
+    <div class="product-eyebrow">Complete Kit — Instant Gumroad Delivery</div>
+    <div class="product-price-row">
+      <span class="product-price">$27</span>
+      <span class="product-price-sub">one-time · instant download</span>
+    </div>
+    <h2>Wedding Speech Rescue Kit</h2>
+    <p class="product-tagline">20 complete speech scripts. 50 openers. 30 toasts. The humor guide, the delivery guide, and the emergency section. Delivered to your inbox the moment you purchase — so the speech is done tonight and Saturday belongs to the couple, not your nerves.</p>
+
+    <div class="product-includes">
+      <div class="product-includes-label">Everything Included</div>
+      <div class="product-items">
+        <div class="product-item">
+          <span class="product-item-check">✓</span>
+          <span><strong>20 Complete Speech Scripts</strong> — Best man ×4 tones, maid of honor ×4 tones, father of the bride, mother of the bride, father of the groom, mother of the groom, sibling, grandparent, oldest friend, and more. Each timed to 3–4 minutes with cut points marked.</span>
+        </div>
+        <div class="product-item">
+          <span class="product-item-check">✓</span>
+          <span><strong>50 Opening Lines</strong> — Organized by style: funny, warm, self-deprecating, formal. Swap any opener into any script. The first 15 seconds are handled.</span>
+        </div>
+        <div class="product-item">
+          <span class="product-item-check">✓</span>
+          <span><strong>30 Toasts &amp; Closing Lines</strong> — Classic, modern, funny, and tear-jerker endings. Every speech in the kit ends with the glass raised at exactly the right moment.</span>
+        </div>
+        <div class="product-item">
+          <span class="product-item-check">✓</span>
+          <span><strong>"Funny Without Bombing" Humor Guide</strong> — The rules of wedding humor, the always-off-limits list, and the roast-to-toast pivot that makes a best man speech land.</span>
+        </div>
+        <div class="product-item">
+          <span class="product-item-check">✓</span>
+          <span><strong>The Delivery Guide</strong> — The 24-hour countdown: practice method, nerve management, pacing marks, eye contact map, and mic handling. For people who don't speak in public and would rather not start now.</span>
+        </div>
+        <div class="product-item">
+          <span class="product-item-check">✓</span>
+          <span><strong>"Asked to Speak Tonight" Emergency Section</strong> — Three 60-second surprise toasts you can personalize on your phone in the hallway.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-packs">
+      <strong>Specialty Packs — Available Separately.</strong> Officiant Ceremony Script Pack ($17), Rehearsal Dinner &amp; Welcome Toast Pack ($9), Vow Writing Kit ($17), Anniversary &amp; Vow Renewal Pack ($9). Buyer email list gets first access.
+    </div>
+
+    <!-- INTEGRATION NOTE: Replace href="#" with your actual Gumroad product URL.
+         Format: https://[your-store].gumroad.com/l/[product-slug]
+         Keep ?wanted=true appended for direct checkout. -->
+    <a href="#" class="product-cta" id="gumroad-cta" rel="noopener noreferrer">
+      Get the Wedding Speech Rescue Kit — $27
+      <span class="cta-arrow">→</span>
+    </a>
+
+    <p class="product-guarantee">Instant download after purchase · All PDFs · Speech done tonight</p>
+  </div>
+</section>
+
+<!-- PACKS SECTION -->
+<section class="packs">
+  <h2>Specialty Packs — Sold Separately</h2>
+  <p class="packs-sub">Each pack extends the kit into a specific wedding moment. Buyers of the main kit receive first access via email.</p>
+  <div class="packs-grid">
+    <div class="pack-item">
+      <div class="pack-price">$17</div>
+      <div class="pack-name">Officiant Ceremony Script Pack</div>
+    </div>
+    <div class="pack-item">
+      <div class="pack-price">$17</div>
+      <div class="pack-name">Vow Writing Kit</div>
+    </div>
+    <div class="pack-item">
+      <div class="pack-price">$9</div>
+      <div class="pack-name">Rehearsal Dinner &amp; Welcome Toasts</div>
+    </div>
+    <div class="pack-item">
+      <div class="pack-price">$9</div>
+      <div class="pack-name">Anniversary &amp; Vow Renewal Pack</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">RISE 79 — Independent Speech Education</div>
+  <p class="footer-legal">
+    All templates are starting points — personalize them with the stories only you can tell. Products are delivered digitally via Gumroad immediately after purchase. No refunds on digital downloads.
+  </p>
+</footer>
+
+<script>
+/* Form submission handler — replace with MailerLite embedded form when live.
+   When MailerLite embed code is in place, remove this function and the onclick attributes. */
+function handleFormSubmit(inputId, successId) {
+  var input = document.getElementById(inputId);
+  var success = document.getElementById(successId);
+  var email = input ? input.value.trim() : '';
+
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    input.focus();
+    input.style.borderColor = 'var(--fire)';
+    input.style.boxShadow = '0 0 0 3px rgba(177,32,6,0.2)';
+    setTimeout(function() {
+      input.style.borderColor = '';
+      input.style.boxShadow = '';
+    }, 1500);
+    return;
+  }
+
+  /* Replace this with MailerLite embed form submission. */
+  console.log('Subscriber:', email, '— wire up MailerLite here');
+
+  var row = input.closest('.form-row');
+  if (row) row.style.display = 'none';
+  if (success) { success.style.display = 'block'; }
+}
+
+window.onerror = function() { return true; };
+</script>
+
+</body>
+</html>

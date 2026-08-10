@@ -1,0 +1,255 @@
+# RISE 79 — Gumroad Product Deployment Checklist
+## Products 1 & 3: 30-Day Launch Sequence — Days 1–20
+
+---
+
+## Days 1–3: Infrastructure First (no product built yet)
+
+### MailerLite Account
+- [ ] Create MailerLite account (free to 1,000 subscribers)
+- [ ] Create ONE master list (name it: RISE79 Main List)
+- [ ] Create interest tags: `nightshift-wealth`, `homegoing-kit`, `buyer-nightshift`, `buyer-homegoing`
+- [ ] Verify sender email (valonbooks@gmail.com or a RISE79 branded address)
+
+### Zapier Automations (2 Zaps required, set up before anything goes live)
+
+**Zap 1 — Freebie Delivery**
+- Trigger: New subscriber in MailerLite
+- Filter: Tag contains "nightshift-wealth" OR "homegoing-kit"
+- Action: MailerLite → Send email with freebie PDF link
+  - Note: upload PDFs to Google Drive first; share a direct download link
+  - Link structure: Drive → right-click → Get link → "Anyone with link can view"
+
+**Zap 2 — Buyer Tagging**
+- Trigger: New sale in Gumroad
+- Filter: Product name contains "Nightshift" OR "Homegoing"
+- Action: MailerLite → Add/update subscriber → Add tag: `buyer-[product]`
+- Secondary action: MailerLite → Add to buyer sequence (Day 1 email fires immediately)
+
+### GitHub Repos (Rise79 namespace)
+- [ ] Create repo: `Rise79/nightshift-wealth` — push `products/nightshift-wealth/` contents
+- [ ] Create repo: `Rise79/homegoing-tribute` — push `products/homegoing-tribute/` contents
+- [ ] Each repo: `index.html` at root = ready for Cloudflare Pages
+
+---
+
+## Days 4–10: Build Products 1 and 3
+
+### Product 1 — Nightshift Wealth System
+
+**Lead Magnet PDF Assembly**
+- [ ] Open `products/nightshift-wealth/lead-magnet-content.md`
+- [ ] Assemble into PDF using Google Docs or Canva (fire palette, 8 pages)
+- [ ] File name: `3-Day-Shift-Worker-Money-Reset.pdf`
+- [ ] Upload to Google Drive → RISE79/OPS/nightshift-wealth/
+- [ ] Get shareable download link → plug into Zapier Zap 1
+
+**Gumroad Listing — Product 1**
+- [ ] Open `products/nightshift-wealth/gumroad-listing.md`
+- [ ] Create new Gumroad product → paste description text
+- [ ] Price: $47 | Slug: `nightshift-wealth-system`
+- [ ] Upload placeholder ZIP (or note that full content ships within 24hr of launch)
+- [ ] Note the Gumroad product URL → update `href="#gumroad-cta"` in `index.html`
+
+**Google Sheets Tracker**
+- [ ] Build Rotation Budget Tracker in Google Sheets
+  - Tab 1: 3×12 rotation template
+  - Tab 2: 4×10 rotation template
+  - Tab 3: 2-2-3 rotation template
+  - Tab 4: Overtime calculator
+- [ ] Share with "anyone with link can view" → add link to Gumroad product ZIP
+
+**Full PDF (60 Pages)**
+- [ ] Write using `gumroad-listing.md` "What's Inside" sections as chapter outline
+- [ ] Assemble in Google Docs → export PDF
+- [ ] RISE79 fire palette cover. Chapter headers in fire red. Body in white.
+
+### Product 3 — Homegoing Tribute Creation Kit
+
+**Lead Magnet PDF Assembly**
+- [ ] Open `products/homegoing-tribute/lead-magnet-content.md`
+- [ ] Assemble into PDF (6 pages, warm APEX palette)
+- [ ] File name: `The-5-Minute-Obituary-Template.pdf`
+- [ ] Upload to Google Drive → RISE79/OPS/homegoing-tribute/
+- [ ] Get shareable download link → plug into Zapier Zap 1
+
+**Gumroad Listing — Product 3**
+- [ ] Open `products/homegoing-tribute/gumroad-listing.md`
+- [ ] Create new Gumroad product → paste description text
+- [ ] Price: $27 | Slug: `homegoing-tribute-creation-kit`
+- [ ] Note Gumroad URL → update `href="#gumroad-cta"` in `index.html`
+
+**Tribute Scripts + Obituary Templates (full product)**
+- [ ] Write 20 tribute scripts (by relationship — use lead magnet as template base, expand)
+- [ ] Write 10 obituary templates (short/standard/extended)
+- [ ] Create 5 program layout PDFs (order of service structure)
+- [ ] Assemble Sudden Loss Supplement (8 scripts)
+- [ ] Assemble Relationship Modifier Guide
+- [ ] Bundle into ZIP, upload to Gumroad
+
+---
+
+## Days 11–14: Domain + Cloudflare + MailerLite Forms
+
+### Domain Setup (Hostinger → Cloudflare)
+- [ ] Purchase nightshiftwealth.com via Hostinger (registrar only, NOT Horizon)
+- [ ] Purchase homegoingkit.com via Hostinger
+- [ ] In Hostinger: change nameservers to Cloudflare nameservers
+  - Cloudflare account → Add site → Get nameservers → paste into Hostinger DNS settings
+
+### Cloudflare Pages Deployment
+- [ ] Connect GitHub to Cloudflare Pages
+- [ ] Create project: `nightshift-wealth` → connect to `Rise79/nightshift-wealth` repo → deploy
+  - Build settings: none (static HTML) | Root: / | Output: /
+- [ ] Create project: `homegoing-tribute` → connect to `Rise79/homegoing-tribute` repo
+- [ ] In Cloudflare: Custom Domain → enter Hostinger domain → follow verification steps
+- [ ] Test: visit nightshiftwealth.com → should serve `index.html` from GitHub
+
+### MailerLite Form Integration
+- [ ] MailerLite → Forms → Create embedded form → "Nightshift Wealth Free Guide"
+  - Fields: Email only (reduce friction)
+  - After submit: redirect to "thank you" page OR show inline success
+  - Add tag on subscribe: `nightshift-wealth`
+- [ ] Copy embed code → replace the `<div class="form-wrap">` section in `index.html`
+  - IMPORTANT: The `<div class="form-wrap">` wrapper and `.form-success` div are replaced by MailerLite's embed
+  - Keep the `.magnet-box` wrapper (the gold-bordered card) — just replace the form inside it
+  - Delete the `handleFormSubmit` JavaScript function after replacing with MailerLite embed
+- [ ] Repeat for Homegoing Kit form
+- [ ] Commit updated `index.html` to GitHub → Cloudflare auto-deploys
+
+### Full Path Test (do this before any traffic)
+- [ ] Mobile Chrome: visit nightshiftwealth.com → enter email → submit
+- [ ] Check MailerLite → subscriber appears with correct tag
+- [ ] Check Zapier → Zap 1 fires → freebie email arrives within 5 minutes
+- [ ] Click Gumroad link in welcome email → product page loads → purchase flow works
+- [ ] Make a $1 test purchase → check Zapier Zap 2 fires → buyer tag added in MailerLite
+
+---
+
+## Days 15–20: Pinterest Launch
+
+### Product 1 Pinterest Pins (3 pins)
+Copy from `products/nightshift-wealth/gumroad-listing.md` → Pinterest Pin Copy section
+
+- [ ] Pin 1: Problem pin (fire palette graphic) → link to nightshiftwealth.com
+- [ ] Pin 2: Pain point pin → link to nightshiftwealth.com
+- [ ] Pin 3: Authority pin → link to nightshiftwealth.com
+- [ ] Schedule via Buffer: 1 pin/day for 3 days
+- [ ] Image size: 1000×1500px (Pinterest vertical format)
+- [ ] Design: APEX fire palette — obsidian bg, fire accent, gold text, white body
+
+### Product 3 Pinterest Pins (3 pins)
+Copy from `products/homegoing-tribute/gumroad-listing.md` → Pinterest Pin Copy section
+
+- [ ] Pin 1: Search traffic pin → homegoingkit.com
+- [ ] Pin 2: Distinction pin → homegoingkit.com
+- [ ] Pin 3: Emotional pin → homegoingkit.com
+- [ ] Schedule via Buffer: staggered 2 days apart
+
+### Week 2 Signal Check (Day 22)
+- [ ] Review nightshiftwealth.com traffic (Cloudflare Analytics)
+- [ ] Count email signups in MailerLite
+- [ ] If conversion rate below 30% of landing page visitors → rewrite hero headline only
+- [ ] If above 30% → begin Product 4 (Night Frequency) build
+
+---
+
+## Day 30 Kill Criteria (non-negotiable)
+
+**Continue if any ONE of these is true:**
+- 3+ paying Gumroad customers across Products 1 and 3 combined
+- 200+ email subscribers in MailerLite
+- 1 returning buyer (proof of repeat purchase mechanism working)
+
+**Revise (not stop) if:**
+- High email signups + zero Gumroad sales → the product page or price is the problem. Rewrite the Gumroad description. Test $37 vs $47 for Product 1.
+
+**Stop a product (not the system) if:**
+- 100+ clicks to the Gumroad listing → zero purchases → replace that product listing with Product 2 or Product 5 from the portfolio.
+- Do not drop the price. Replace the product.
+
+---
+
+## Products 3 & 4 (Universal Market Expansion): Wedding Speech Rescue + Memorial Tribute
+
+Portfolio direction update: all products target universal panic/pain buyers — deadline + high stakes + blank page. Cultural editions (like the Homegoing Kit) remain live as separate listings; universal editions widen the market.
+
+### Wedding Speech Rescue Kit ($27)
+- [ ] Assemble lead magnet PDF from `products/wedding-speech-rescue/lead-magnet-content.md` → `The-5-Minute-Wedding-Speech.pdf` → Drive → Zapier
+- [ ] Create Gumroad listing from `products/wedding-speech-rescue/gumroad-listing.md` (slug: `wedding-speech-rescue-kit`)
+- [ ] Write full kit content (20 scripts, 50 openers, 30 toasts, humor guide, delivery guide, emergency section) → ZIP → Gumroad
+- [ ] Domain: weddingspeechrescue.com (Hostinger → Cloudflare) → deploy `products/wedding-speech-rescue/index.html`
+- [ ] MailerLite tag: `wedding-speech` | Buyer tag: `buyer-wedding`
+- [ ] 3 Pinterest pins (copy in gumroad-listing.md) — NOTE: wedding boards are Pinterest's largest category; this product gets pin-refresh priority (3 new designs quarterly)
+
+### Memorial Tribute Kit ($27) — Universal edition of the Homegoing Kit
+- [ ] Build content ONCE for both editions — see Content Reuse Map in `products/memorial-tribute/gumroad-listing.md` (80% shared with homegoing kit; universal register + religious/secular variants)
+- [ ] Assemble lead magnet PDF from `products/memorial-tribute/lead-magnet-content.md` → `The-5-Minute-Eulogy-Starter.pdf` → Drive → Zapier
+- [ ] Create Gumroad listing (slug: `memorial-tribute-kit`) — keep the Homegoing Kit listing separate and live; they rank for different searches
+- [ ] Domain: memorialtributekit.com (Hostinger → Cloudflare) → deploy `products/memorial-tribute/index.html`
+- [ ] MailerLite tag: `memorial-kit` | Buyer tag: `buyer-memorial`
+- [ ] 3 Pinterest pins (copy in gumroad-listing.md)
+
+---
+
+## Night Frequency ($17) — The Uncopiable Flagship
+
+The advisory group's top-ranked product: original OBSIDIAN HOUR music IP. Unlike the template products, this cannot be cloned, and one production session feeds Gumroad + DistroKid streaming + YouTube Content ID + sync licensing. Build order differs — production comes before the listing.
+
+### Production First (the asset)
+- [ ] Generate all 10 tracks from `products/night-frequency/song-specs.md` (Suno / vidiq_generate_music). Tracks 01, 03, 10 are fully specced; 02, 04–09 follow the production matrix.
+- [ ] Run each track through the Quality Gate in song-specs.md (4kHz ceiling, descending-contour rule, no artist names, design-intent framing).
+- [ ] Master for headphones. Export high-quality MP3. Total ~79 min.
+- [ ] Generate cover art per each track's COVER ART DIRECTION (image-prompt-engine standard, fire palette, no golden hour).
+
+### Parallel Streaming Asset (do NOT skip — this is why it's the winner)
+- [ ] DistroKid: distribute all 10 tracks as the *Night Frequency* album (Spotify, Apple, Amazon, etc.)
+- [ ] Enable YouTube Content ID via DistroKid
+- [ ] Produce one 1-hour long-form YouTube video with the full collection → AdSense + pinned Gumroad link
+- [ ] Log sync-licensing candidates (targets named per track in song-specs.md)
+
+### Gumroad + Funnel
+- [ ] Bundle 10 MP3s + Sleep Protocol PDF into ZIP → Gumroad listing from `products/night-frequency/gumroad-listing.md` (slug: `night-frequency`, $17)
+- [ ] Host 3 free tracks (01, 02, 10) on Cloudflare R2 or your domain — NOT hotlinked externally
+- [ ] Assemble lead magnet: 3 free MP3s + `Night-Frequency-Sleep-Protocol-Starter.pdf` from `products/night-frequency/lead-magnet-content.md`
+- [ ] Zapier: new subscriber → email the 3 free track links + starter PDF
+- [ ] Domain: nightfrequency.com (Hostinger → Cloudflare) → deploy `products/night-frequency/index.html`
+- [ ] Wire real 30s audio previews into the landing page (integration note in index.html source)
+- [ ] MailerLite tag: `night-frequency` | Buyer tag: `buyer-nightfreq`
+- [ ] 3 Pinterest pins (copy in gumroad-listing.md)
+
+### Repeat Engine
+- [ ] Seasonal drops as separate Gumroad listings: Summer Nights ($9), Winter Deep ($9), Deep Focus for Night Shift ($17) — each also goes to DistroKid
+- [ ] Buyer email list gets every drop first
+
+**LLC trigger reminder:** the moment any earnings are reported from Night Frequency (Gumroad OR DistroKid streaming), remind Mr. Rise 79 to file the Rise 79 LLC (~$300, Secretary of State).
+
+---
+
+## Quick Reference: File Locations
+
+| Asset | Location |
+|-------|----------|
+| Nightshift Wealth landing page | `products/nightshift-wealth/index.html` |
+| Nightshift Wealth Gumroad copy | `products/nightshift-wealth/gumroad-listing.md` |
+| Nightshift Wealth lead magnet | `products/nightshift-wealth/lead-magnet-content.md` |
+| Homegoing Tribute landing page | `products/homegoing-tribute/index.html` |
+| Homegoing Tribute Gumroad copy | `products/homegoing-tribute/gumroad-listing.md` |
+| Homegoing Tribute lead magnet | `products/homegoing-tribute/lead-magnet-content.md` |
+| Wedding Speech landing page | `products/wedding-speech-rescue/index.html` |
+| Wedding Speech Gumroad copy | `products/wedding-speech-rescue/gumroad-listing.md` |
+| Wedding Speech lead magnet | `products/wedding-speech-rescue/lead-magnet-content.md` |
+| Memorial Tribute landing page | `products/memorial-tribute/index.html` |
+| Memorial Tribute Gumroad copy | `products/memorial-tribute/gumroad-listing.md` |
+| Memorial Tribute lead magnet | `products/memorial-tribute/lead-magnet-content.md` |
+| Night Frequency landing page | `products/night-frequency/index.html` |
+| Night Frequency Gumroad copy | `products/night-frequency/gumroad-listing.md` |
+| Night Frequency lead magnet | `products/night-frequency/lead-magnet-content.md` |
+| Night Frequency album spec (12-Field) | `products/night-frequency/song-specs.md` |
+| This checklist | `products/DEPLOYMENT-CHECKLIST.md` |
+| Full 10-product playbook | RISE 79 Gumroad Empire Playbook (artifact) |
+
+---
+
+**No people contact required. Gumroad delivers. Zapier notifies. MailerLite follows up.**
+**The machine runs while the shift runs.**
